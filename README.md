@@ -1,4 +1,4 @@
-#mi_primer_proyecto_django
+# mi_primer_proyecto_django
 
 Este proyecto es simplemente un test para aprender un poco de django y cómo crear páginas web, todos estos ejemplos se dan acabo mediante el informatorio web junto con el profesor [Lucas Ibañez](https://github.com/lucasibaniez "Lucas Ibañez").
 
