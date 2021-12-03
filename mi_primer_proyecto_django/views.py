@@ -1,12 +1,10 @@
 from django.shortcuts import render
+from apps.productos.models import productos as product
 
 
 def home(request):
 
-    productos = [
-        {"name": "computadora","price":20},
-        {"name": "celular","price":123}
-    ]
+    productos = product.objects.all()
 
     usuario = {
         "username":"lucas",
