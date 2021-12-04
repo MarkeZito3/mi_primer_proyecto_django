@@ -18,7 +18,10 @@ from django.urls import path
 
 from . import views
 
+#por cada ventana que se agrega de debe colocar en el urlpatterns.
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("home/",views.home),
+    path("",views.home),
+    path("users",views.users),
 ]
