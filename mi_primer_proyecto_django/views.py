@@ -1,9 +1,11 @@
 from django.shortcuts import render
-
+from django.views.generic import TemplateView 
 #acá importo las apps
 from apps.productos.models import productos as product
 from apps.usuarios.models import users as u
 
+
+#VIASTAS BASADAS EN FUNCIONES
 
 def home(request):
 
@@ -19,14 +21,29 @@ def home(request):
         "productos": productos
     }
 
-    return render(request,"home.html",context)
+    return render(request,"index.html",context)
 
-def users(request):
+def login(request):
 
-    usuarios = u.objects.all()
+    print(request.POST.get("username",None)," and ",request.POST.get("password",None))
 
-    context = {
-        "usuarios" : usuarios 
-    }
+    return render(request,"login.html",)
 
-    return render(request,"login.html",context)
+
+
+#VIASTAS BASADAS EN CLASES
+
+"""
+    detaileview: solo muestra un valor de la base de datos
+    listview: listar todos los objetos de un modelo particular
+    createview: crea un objeto
+    updateview: actualiza un objeto
+    delateview: borra un objeto
+
+    estas son unas vistas que ya estan en django que ya tienen todo el código necesario para la
+    cumplir con esas funcionalidades
+"""
+
+
+class Blog(TemplateView):
+    template_name = "blog.html"

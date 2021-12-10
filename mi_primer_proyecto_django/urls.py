@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.views.generic import TemplateView
+
 from . import views
 
 #por cada ventana que se agrega de debe colocar en el urlpatterns.
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("home/",views.home),
-    path("",views.home),
-    path("users",views.users),
+    path("home/",views.home, name='home'),
+    path("",views.home, name='index'),
+    path("login",views.login, name='login'),
+    path('blog/', TemplateView.as_view(template_name="blog.html"), name='blog'),
 ]

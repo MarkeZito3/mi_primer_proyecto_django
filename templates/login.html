@@ -1,3 +1,6 @@
+<!--{% load static %}-->
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,20 +8,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!--<link href="{% static 'css/login.css' %}" rel="stylesheet">-->
+
     <title>login</title>
 </head>
 <body>
     <p>esto es un login</p>
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <input type="submit" value="Login" name="surname" placeholder="Login">
-    
-    <ul>
-        {% for x in usuarios %}
-            <li> {{x.id}}   {{x.username}} {{x.password}} </li>
-        {% endfor %}
-    </ul>
+    <form method = "POST"> {% csrf_token %}
+        <input type="text" name="username" placeholder="Ingrese el nombre de usuario" autofocus="" >
+        <input type="password" name="password" placeholder="password">
+        <input type="submit" value="Login" name="surname" placeholder="Login">
+    </form>    
 
+    <p><a href="{% url 'index' %}">Ir al inicio</a></p>
 
 </body>
 </html>
