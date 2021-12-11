@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.contrib.auth import views as views_auth
+
 from django.views.generic import TemplateView
 
 from . import views
@@ -23,8 +25,12 @@ from . import views
 #por cada ventana que se agrega de debe colocar en el urlpatterns.
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    # paths vasados de vistas basados en funciones
     path("home/",views.home, name='home'),
     path("",views.home, name='index'),
-    path("login",views.login, name='login'),
+
+    # paths de vistas basados en clases
+    path('login',views_auth.LoginView.as_view(template_name='login.html'), name='login'),
     path('blog/', TemplateView.as_view(template_name="blog.html"), name='blog'),
 ]

@@ -34,16 +34,18 @@ def login(request):
 #VIASTAS BASADAS EN CLASES
 
 """
-    detaileview: solo muestra un valor de la base de datos
-    listview: listar todos los objetos de un modelo particular
-    createview: crea un objeto
-    updateview: actualiza un objeto
-    delateview: borra un objeto
+    DetaileView: solo muestra un valor de la base de datos
+    ListView: listar todos los objetos de un modelo particular
+    CreateView: crea un objeto
+    UpdateView: actualiza un objeto
+    DelateView: borra un objeto
+    TemplateView: solamente muestra un template
 
-    estas son unas vistas que ya estan en django que ya tienen todo el código necesario para la
-    cumplir con esas funcionalidades
+    estas son unas vistas que ya estan en django que ya tienen todo el código necesario
+    para la cumplir con esas funcionalidades
 """
 
 
 class Blog(TemplateView):
     template_name = "blog.html"
+
